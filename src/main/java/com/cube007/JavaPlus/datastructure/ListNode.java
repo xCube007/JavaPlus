@@ -1,4 +1,4 @@
-package com.cube007.JavaPlus.algorithm;
+package com.cube007.JavaPlus.datastructure;
 
 /**
  * @ClassName: ListNode
@@ -8,17 +8,17 @@ package com.cube007.JavaPlus.algorithm;
  */
 public class ListNode {
 
-    int val;
+    public int val;
 
-    ListNode next;
+    public ListNode next;
 
-    ListNode() {}
+    public ListNode() {}
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }

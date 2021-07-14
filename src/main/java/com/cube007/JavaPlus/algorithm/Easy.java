@@ -1,5 +1,7 @@
 package com.cube007.JavaPlus.algorithm;
 
+import com.cube007.JavaPlus.datastructure.ListNode;
+
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
