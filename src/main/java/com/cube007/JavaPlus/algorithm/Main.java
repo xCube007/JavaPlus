@@ -26,7 +26,7 @@ public class Main {
             int[] b = {3,4};
 //            System.out.println(easy.strStr("bba", "a"));
 //            System.out.println(difficult.findMedianSortedArrays(a, b));
-            System.out.println(medium.convert(x, 4));
+            System.out.println(medium.letterCombinations("56"));
         }
 
 

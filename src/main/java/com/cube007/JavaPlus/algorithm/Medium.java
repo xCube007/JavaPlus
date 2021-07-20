@@ -1,8 +1,6 @@
 package com.cube007.JavaPlus.algorithm;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName: Medium
@@ -44,8 +42,13 @@ public class Medium {
         return a;
     }
 
-
-
+    /**
+     * 最长回文数字串
+     * @param s:
+     * @return java.lang.String
+     * @author Cube007
+     * @date 2021/7/20 16:38
+     */
     public String longestPalindrome(String s) {
         int len = s.length();
         if (len < 2) {
@@ -94,6 +97,15 @@ public class Medium {
         return s.substring(begin, begin + maxLen);
     }
 
+
+    /**
+     * N字变换
+     * @param s
+     * @param numRows
+     * @return java.lang.String
+     * @author Cube007
+     * @date 2021/7/20 16:39
+     */
     public String convert(String s, int numRows) {
         StringBuilder str = new StringBuilder();
         if (numRows == 1 || s.length() <= 1) {
@@ -138,6 +150,67 @@ public class Medium {
 
         }
         return str.toString();
+    }
+
+    /**
+     * 8. 字符串转换整数 (atoi)
+     * @param s: 
+     * @return int
+     * @author Cube007
+     * @date 2021/7/20 16:40
+     */
+    public int myAtoi(String s) {
+
+        return 0;
+    }
+
+
+
+    Map<Character, String> map = new HashMap<Character, String>(){{
+        put('2', "abc");
+        put('3', "def");
+        put('4', "ghi");
+        put('5', "jkl");
+        put('6', "mno");
+        put('7', "pqrs");
+        put('8', "tuv");
+        put('9', "wxyz");
+    }};
+
+    List<String> res;
+
+    /**
+     * 17. 电话号码的字母组合
+     * @param digits: 
+     * @return java.util.List<java.lang.String>
+     * @author Cube007
+     * @date 2021/7/20 17:01
+     */
+    public List<String> letterCombinations(String digits) {
+
+        res = new ArrayList<>();
+        if (digits.length() == 0) {
+            return res;
+        }
+
+        backtrack(digits, 0, new StringBuilder());
+        return res;
+    }
+
+    public void backtrack(String digits, int index, StringBuilder stringBuilder) {
+        if(index == digits.length()){
+            res.add(stringBuilder.toString());
+            return;
+        }
+
+        char c = digits.charAt(index);
+        String letters = map.get(c);
+        for(int i = 0 ; i < letters.length() ; i ++){
+            backtrack(digits, index+1, stringBuilder.append(letters.charAt(i)));
+            stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        }
+
+
     }
 
 }
