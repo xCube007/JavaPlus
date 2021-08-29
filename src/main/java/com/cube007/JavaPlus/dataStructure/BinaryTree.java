@@ -1,4 +1,4 @@
-package com.cube007.JavaPlus.datastructure;
+package com.cube007.JavaPlus.dataStructure;
 
 public class BinaryTree {
 

@@ -1,7 +1,7 @@
 package com.cube007.JavaPlus.algorithm;
 
-import com.cube007.JavaPlus.datastructure.BinaryTree;
-import com.cube007.JavaPlus.datastructure.ListNode;
+import com.cube007.JavaPlus.dataStructure.BinaryTree;
+import com.cube007.JavaPlus.dataStructure.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class Other {
 
     public static void main(String[] args) {
-        ListNode listNode = reversionListNode(ListNode.getListNode());
+        ListNode listNode = reverse(ListNode.getListNode());
         System.out.println(listNode);
     }
 
@@ -119,7 +119,7 @@ public class Other {
     /**
      * 反转链表
      * @param listNode:
-     * @return com.cube007.JavaPlus.datastructure.ListNode
+     * @return com.cube007.JavaPlus.dataStructure.ListNode
      * @author Cube007
      * @date 2021/8/29 23:18
      */
@@ -136,6 +136,23 @@ public class Other {
         }
 
         return pre;
+    }
+
+    /**
+     * 反转链表递归法
+     * @param head:
+     * @return com.cube007.JavaPlus.dataStructures.ListNode
+     * @author Cube007
+     * @date 2021/8/29 23:28
+     */
+    public static ListNode reverse(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode temp = head.next;
+        ListNode newHead = reverse(head.next);
+        temp.next = head;
+        head.next = null;
+        return newHead;
     }
 
 

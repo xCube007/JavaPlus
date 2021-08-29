@@ -1,6 +1,6 @@
 package com.cube007.JavaPlus.algorithm;
 
-import com.cube007.JavaPlus.datastructure.ListNode;
+import com.cube007.JavaPlus.dataStructure.ListNode;
 
 import java.util.Deque;
 import java.util.HashMap;
