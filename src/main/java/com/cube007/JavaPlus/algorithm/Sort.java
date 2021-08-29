@@ -8,6 +8,16 @@ package com.cube007.JavaPlus.algorithm;
  */
 public class Sort {
 
+
+    public static void main(String[] args) {
+        int[] a = {6,8,1,4,7,10,9};
+        quickSort01(a, 0, a.length - 1);
+        for (int i : a) {
+            System.out.println(i);
+        }
+
+    }
+
     /**
      * 功能描述:冒泡排序
      * @param arr:
@@ -113,7 +123,7 @@ public class Sort {
      * @author Liu Xiaonan
      * @date 2021/7/5 17:52
      */
-    public void quickSort(int[] arr,int low,int high){
+    public static void quickSort(int[] arr,int low,int high){
         int i, j, temp, t;
         if(low > high){
             return;
@@ -147,6 +157,49 @@ public class Sort {
         //递归调用右半数组
         quickSort(arr, j + 1, high);
     }
+
+
+    /**
+     * 
+     * @param arr:
+     * @param low:
+     * @param high:
+     * @author Cube007
+     * @date 2021/8/29 22:12
+     */
+    public static void quickSort01(int[] arr, int low, int high) {
+
+        if (low >= high) {
+            return;
+        }
+
+        int i = low;
+        int j = high;
+        int temp = arr[low];
+        int t;
+
+        while (i < j) {
+            while (temp <= arr[j] && i < j) {
+                j--;
+            }
+            while (temp >= arr[i] && i < j) {
+                i++;
+            }
+            if (i < j) {
+                t = arr[j];
+                arr[j] = arr[i];
+                arr[i] = t;
+            }
+        }
+        arr[low] = arr[i];
+        arr[i] = temp;
+        quickSort01(arr, low , j - 1);
+        quickSort01(arr, j + 1 , high);
+        
+
+    }
+
+
 
     /**
      * 功能描述:归并排序
@@ -194,9 +247,8 @@ public class Sort {
                 index++;
             }
             //最后将新的数据赋值给原来的列表，并且是对应分块后的下标。
-            for (int i = start; i <= end; i++) {
-                arr[i] = result[i - start];
-            }
+            if (end + 1 - start >= 0)
+                System.arraycopy(result, 0, arr, start, end + 1 - start);
         }
     }
 
