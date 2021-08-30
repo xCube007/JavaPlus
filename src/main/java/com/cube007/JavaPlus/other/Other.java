@@ -1,5 +1,6 @@
 package com.cube007.JavaPlus.other;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -9,13 +10,15 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author 11917
  */
 public class Other {
-    public void other() {
-        Map<String, Object> map = new HashMap<>(5);
-        map.put("a", "b");
 
-        map = new ConcurrentHashMap<>();
+    private final int num = 8;
 
-        map.put("", "");
-
+    public Other() {
+        new Thread(() -> System.out.println(this.num)).start();
     }
+
+    public static void main(String[] args) throws IOException {
+        new Other();
+    }
+
 }

@@ -10,6 +10,10 @@ import java.util.*;
  */
 public class Medium {
 
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("asddsdasd"));
+    }
+
     /**
      *
      * 功能描述: 最长子串的长度
@@ -19,7 +23,7 @@ public class Medium {
      * @return int
      * @date 2021/7/5 18:32
      */
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.isEmpty()) {
             return 0;
         }
@@ -100,8 +104,8 @@ public class Medium {
 
     /**
      * N字变换
-     * @param s
-     * @param numRows
+     * @param s:
+     * @param numRows:
      * @return java.lang.String
      * @author Cube007
      * @date 2021/7/20 16:39
@@ -111,7 +115,7 @@ public class Medium {
         if (numRows == 1 || s.length() <= 1) {
             return s;
         }
-        int len = 0;
+        int len;
         int b = s.length()%(numRows+numRows-2);
         if (b > numRows) {
             len = s.length() / (numRows + numRows - 2) * (numRows - 1) + 1 +  b - numRows;
