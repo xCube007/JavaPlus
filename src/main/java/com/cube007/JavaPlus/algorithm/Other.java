@@ -12,6 +12,8 @@ public class Other {
     public static void main(String[] args) {
         ListNode listNode = reverse(ListNode.getListNode());
         System.out.println(listNode);
+
+        System.out.println(selectNode(ListNode.getListNode(), 2).val);
     }
 
 
@@ -153,6 +155,39 @@ public class Other {
         temp.next = head;
         head.next = null;
         return newHead;
+    }
+
+
+    /**
+     * 查找链表倒数第k个节点
+     * @param head:
+     * @param k:
+     * @return com.cube007.JavaPlus.dataStructure.ListNode
+     * @author Cube007
+     * @date 2021/9/3 18:43
+     */
+    public static ListNode selectNode(ListNode head, int k) {
+        if (head == null || k < 1) {
+            return null;
+        }
+
+        ListNode one = head;
+        ListNode two = head;
+
+        while (k > 1 && one.next != null) {
+            one = one.next;
+            k--;
+        }
+
+        if (k > 1) {
+            return null;
+        }
+        while (one.next != null) {
+            one = one.next;
+            two = two.next;
+        }
+        return two;
+
     }
 
 
