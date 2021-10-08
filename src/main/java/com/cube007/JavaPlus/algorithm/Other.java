@@ -190,6 +190,42 @@ public class Other {
 
     }
 
+    /**
+     * 寻找1000w个数里面最小的10个数
+     * @param arr:
+     * @author Cube007
+     * @date 2021/10/8 21:55
+     */
+    public static void select(int[] arr) {
+        int[] val = new int[10];
+        System.arraycopy(arr, 0, val, 0, 10);
+        // 快速排序
+        Sort.quickSort01(val, 0, val.length-1);
+        for (int l = 10; l < arr.length; l++) {
+            int j = -1;
+            for (int i = 0; i < 10; i++) {
+                if (val[i] > arr[l]) {
+                    j = i;
+                    break;
+                }
+            }
+
+            if (j != -1) {
+                int t = arr[l];
+                for (int i = j; i < val.length; i++) {
+                    if (val[i] > t) {
+                        int tmp = val[i];
+                        val[i] = t;
+                        t = tmp;
+                    }
+                }
+            }
+        }
+        for (int i : val) {
+            System.out.println(i);
+        }
+    }
+
 
 
 
