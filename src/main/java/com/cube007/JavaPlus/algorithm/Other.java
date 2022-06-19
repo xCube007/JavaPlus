@@ -1,8 +1,13 @@
 package com.cube007.JavaPlus.algorithm;
 
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import com.cube007.JavaPlus.dataStructure.BinaryTree;
 import com.cube007.JavaPlus.dataStructure.ListNode;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -224,6 +229,45 @@ public class Other {
         for (int i : val) {
             System.out.println(i);
         }
+    }
+
+    /**
+     * 生成未来一百年以及星期和是否周末
+     * @author Cube007
+     * @date 2022/1/19 15:23
+     */
+    public static void getDate() throws IOException {
+        FileWriter fileWriter = new FileWriter("/Users/liuxiaonan/other/date.txt");
+        BufferedWriter writer = new BufferedWriter(fileWriter);
+
+        String start = "20230101";
+        int val = 7;
+
+        DateTime dateTime = DateUtil.parse(start);
+        List<String> list = new ArrayList<>();
+
+        list.add(0, "");
+        list.add(1, "星期一");
+        list.add(2, "星期二");
+        list.add(3, "星期三");
+        list.add(4, "星期四");
+        list.add(5, "星期五");
+        list.add(6, "星期六");
+        list.add(7, "星期日");
+
+        while (!"21000101".equals(DateUtil.format(dateTime, "yyyyMMdd"))) {
+
+            writer.write(DateUtil.format(dateTime, "yyyyMMdd") + "," + list.get(val) + "," + ((val == 7) || (val == 6) ? 1 : 0));
+            writer.newLine();
+            dateTime = DateUtil.offsetDay(dateTime, 1);
+            if (val == 7) {
+                val = 1;
+            } else {
+                val++;
+            }
+        }
+        writer.flush();
+        writer.close();
     }
 
 
